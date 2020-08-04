@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>spring-boot-01-helloworld</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--org.springframework.boot 它的父项目
+    （<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-dependencies</artifactId>
+	<version>1.5.9.RELEASE</version>
+	<packaging>pom</packaging>）
+	是用来管理Spring Boot应用的所有依赖版本（Spring Boot版本仲裁中心）-->
+    <parent>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <!--spring-boot-starter-web:spring boot场景启动器，帮助我们导入web模块正常运行所以依赖的组件-->
+            <!--spring-boot-starter:spring boot 启动器-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--这个插件，可以将应用打包成一个可执行的jar包-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
